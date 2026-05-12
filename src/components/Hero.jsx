@@ -1,10 +1,21 @@
+import Scene from "./Scene";
+
 function Hero() {
     return(
-        <section class="flex flex-col items-center justify-center p-6 bg-gray-100 text-gray-800">
-            <h1 class="text-4xl font-bold mb-4">Hi I'm Amal Biju</h1>
-            <p class="text-xl mb-2">I'm an AI&DS student</p>
-            <p class="text-xl">Software Developer</p>
+        <section className="h-screen w-full flex">
+            <div className="w-1/2 flex flex-col justify-center px-12 bg-gray-100 text-gray-800">
+        <h1 className="text-5xl font-bold mb-4">
+          Hi, I'm Amal Biju
+        </h1>
+        <p className="text-xl mb-2">I'm an AI & DS student</p>
+        <p className="text-xl">Software Developer</p>
+      </div>
+
+      <div className="w-1/2 h-full">
+        <Scene />
+      </div>
         </section>
+
     )  
 }
 export default Hero;
