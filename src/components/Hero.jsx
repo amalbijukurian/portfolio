@@ -3,9 +3,9 @@ import { Shader, Blob, CursorRipples, FloatingParticles, Glow } from "shaders/re
 function Hero() {
     return(
       <>
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden bg-black">
       <Shader className="absolute inset-0">
-        <Blob/>
+        <FloatingParticles/>
         <CursorRipples/>
         </Shader>
 
@@ -19,8 +19,9 @@ function Hero() {
         </p>
 
         <button className="mt-8 px-6 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
-          View Projects
+          Contact Me!
         </button>
+
       </div>
         </section>
        </>
