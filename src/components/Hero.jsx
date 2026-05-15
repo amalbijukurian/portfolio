@@ -1,13 +1,8 @@
-import { Shader, Blob, CursorRipples, FloatingParticles, Glow } from "shaders/react";
 
 function Hero() {
     return(
       <>
       <section className="relative h-screen w-full overflow-hidden bg-black">
-      <Shader className="absolute inset-0">
-        <FloatingParticles/>
-        <CursorRipples/>
-        </Shader>
 
          <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
         <h1 className="text-5xl md:text-7xl font-bold text-white">
