@@ -3,6 +3,7 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import SmoothScroll from "./components/SmoothScroll";
 import ShaderBackground from "./components/ShaderBackground";
+import Contact from "./components/Contact";
 function App() {
   return(
       <>
@@ -20,6 +21,10 @@ function App() {
 
     <section id="projects">
       <Projects />
+    </section>
+
+    <section id="contact">
+      <Contact />
     </section>
 
     </div>
