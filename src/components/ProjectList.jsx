@@ -54,6 +54,22 @@ const PROJECTS = [
     ],
     extraTitle: "SYSTEM DEPLOYMENT ARCHITECTURE",
     extraContent: "• server.py — FastAPI backend routing climate data, AI chat context, and risk grid endpoints.\n• frontend/ — React + Vite UI utilizing a Leaflet map engine, Chart.js modules, and terminal chat interface.\n• agents/ — Modular risk evaluation agents scoring isolated streams for flood, traffic, power, and conflict vectors.\n• coordinator.py — Core aggregator engine compiling independent agent streams into a unified city status code.\n• monitor.py & ingestion/ — Continuous monitoring sub-process driving external alert writes and third-party API data connectors."
+  },
+  {
+    id: "04",
+    category: "software",
+    title: "AVA",
+    role: "EMPATHETIC AI COMPANION",
+    context: "GROQ SPEED CLUSTER // ELEVENLABS TTS",
+    description: "A lightweight, highly responsive companion interface focused on empathetic communication and local privacy metrics. Built using Streamlit to offer low-latency chat sessions wrapped in clean self-care tracking components.",
+    features: [
+      "Groq API Optimization: Ultra-low latency chat completions for rapid interactive dialog.",
+      "Mood Telemetry Logging: Built-in daily tracking parameters with a persistence-oriented sidebar journal.",
+      "Audio Generation Node: Optional voice replies driven via integrated ElevenLabs text-to-speech pipelines.",
+      "State Controls: Accessible, clear frontend UI handles including a dedicated 'Stop Speaking' media interceptor."
+    ],
+    extraTitle: "STACK SPECIFICATIONS",
+    extraContent: "• Core Interface Stack: Streamlit Server Framework\n• LLM Orchestration Backend: Groq Chat Completion Routing API\n• Audio Generation Subsystem: ElevenLabs Audio Synthesis Engine API\n• Execution Context: Privacy-oriented client session state management tracking mood vectors across persistent sidebar runtime modules."
   }
 ];
 
@@ -211,4 +227,3 @@ export default function ProjectList() {
     </div>
   );
 }
-
