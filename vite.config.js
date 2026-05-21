@@ -10,4 +10,7 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
+  server: {
+    allowedHosts: ['localhost', 'aad3-2401-4900-8fdf-45de-7417-9af7-ed34-9192.ngrok-free.app']
+  }
 })

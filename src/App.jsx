@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
@@ -16,6 +16,8 @@ const SECTION_DATA = [
 
 export default function App() {
   const [activeState, setActiveState] = useState(0);
+  const lenisRef = useRef(null);
+  const contactSectionRef = useRef(null);
 
   // Initialize Smooth Scrolling Engine
   useEffect(() => {
@@ -26,6 +28,8 @@ export default function App() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
     });
+
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -52,6 +56,16 @@ export default function App() {
     return () => lenis.destroy();
   }, []);
 
+  // Handler to smoothly trigger scrolling to terminal contact section
+  const handleScrollToContact = () => {
+    if (lenisRef.current && contactSectionRef.current) {
+      lenisRef.current.scrollTo(contactSectionRef.current, {
+        offset: 0,
+        duration: 1.4,
+      });
+    }
+  };
+
   return (
     <div className="relative w-full bg-black text-white select-none overflow-x-hidden">
       
@@ -67,13 +81,23 @@ export default function App() {
         {/* Subtle grid accent overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]" />
         
-        {/* Telemetry Corner Indicators */}
-        <div className="absolute top-6 left-8 text-[10px] text-gray-500 tracking-[0.2em] uppercase">
-          SYS_STATUS // ACTIVE_NODE_v3.2
+        {/* Telemetry Corner Indicators - Updated with Name */}
+        <div className="absolute top-6 left-8 text-[10px] text-gray-400 tracking-[0.2em] uppercase flex items-center space-x-2">
+          <span className="inline-block w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+          <span className="font-sans font-bold text-white tracking-normal text-xs mr-1">AMAL BIJU</span>
+          <span className="text-gray-500">// SOFTWARE DEVELOPER</span>
         </div>
-        <div className="absolute top-6 right-8 text-[10px] text-gray-500 tracking-[0.2em] uppercase hidden md:block">
-          SYS_LOC // 09.9984° N, 76.3132° E
+
+        {/* Right Top Context Anchor - Contact redirect route added */}
+        <div className="absolute top-5 right-8 pointer-events-auto">
+          <button 
+            onClick={handleScrollToContact}
+            className="text-[10px] text-emerald-400 hover:text-white tracking-[0.2em] uppercase bg-emerald-950/10 hover:bg-emerald-500/10 border border-emerald-500/20 hover:border-emerald-500/50 px-3 py-1.5 rounded transition-all duration-300 cursor-pointer"
+          >
+            [ CONNECT_PORT ]
+          </button>
         </div>
+
         <div className="absolute bottom-6 left-8 text-[10px] text-gray-500 tracking-[0.2em] uppercase">
           STATE_INDEX // 0{activeState}
         </div>
@@ -156,7 +180,10 @@ export default function App() {
       </section>
 
       {/* Section 3: Secure Input Terminal */}
-      <section className="min-h-screen w-full relative z-30 flex flex-col justify-center py-20 px-6 md:px-24">
+      <section 
+        ref={contactSectionRef}
+        className="min-h-screen w-full relative z-30 flex flex-col justify-center py-20 px-6 md:px-24"
+      >
         <div className="w-full max-w-2xl mx-auto font-mono mb-6 text-center md:text-left">
           <p className="text-[11px] text-emerald-400 font-bold tracking-[0.3em] uppercase mb-1">03 // GATEWAY</p>
           <h2 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white">CONTACT TERMINAL.</h2>
