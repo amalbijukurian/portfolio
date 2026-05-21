@@ -16,7 +16,8 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "shaders": "^2.5.123",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
