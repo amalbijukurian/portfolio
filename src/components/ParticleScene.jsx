@@ -1,7 +1,7 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { MorphShaderMaterial } from '../shaders/MorphShader.js';
+import { MorphShaderMaterial } from '../Shaders/MorphShader.js';
 
 export default function ParticleScene({ activeState }) {
   const meshRef = useRef();

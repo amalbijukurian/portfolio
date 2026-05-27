@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 
 import ParticleScene from './components/ParticleScene';
 import GlobalHUD from './components/GlobalHUD';
@@ -60,11 +60,16 @@ export default function App() {
   }, []);
 
   const handleScrollToContact = () => {
-    if (lenisRef.current && contactSectionRef.current) {
-      lenisRef.current.scrollTo(contactSectionRef.current, {
-        offset: 0,
-        duration: 1.4,
-      });
+    if (!contactSectionRef.current) {
+      console.warn('Contact section ref not found');
+      return;
+    }
+
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(contactSectionRef.current, { duration: 1.4 });
+    } else {
+      // Fallback if Lenis is not available
+      contactSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
